@@ -5,34 +5,31 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>lilm.p.easy</groupId>
-	<artifactId>Easy</artifactId>
+	<artifactId>easy-server</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0.0-SNAPSHOT</version>
+	<name>EasyServer</name>
 	<modules>
 		<module>EasyCommon</module>
-		<module>EasyWeb</module>
+		<module>EasyEureka</module>
+		<module>EasyAccount</module>
 	</modules>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.2.RELEASE</version>
+		<version>1.5.7.RELEASE</version>
 	</parent>
 
 	<properties>
 		<mybatis-spring-boot>1.2.0</mybatis-spring-boot>
 		<mysql-connector>5.1.39</mysql-connector>
 		<druid>1.0.18</druid>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<spring-cloud.version>Dalston.SR4</spring-cloud.version>
 	</properties>
-
-	<dependencies>
-
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-			<version>1.2.8</version>
-		</dependency>
-
-	</dependencies>
 
 </project>
