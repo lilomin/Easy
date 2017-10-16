@@ -1,5 +1,6 @@
 package lilm.p.easy.common;
 
+import lilm.p.easy.common.exception.ExceptionEnum;
 import lilm.p.easy.common.response.CommonResponse;
 
 import java.io.Serializable;
@@ -7,14 +8,14 @@ import java.io.Serializable;
 /**
  * Created by lilm on 17-9-7.
  */
-public class ResponseFactory {
+public class ResponseFactory<T> {
 	
-	public static CommonResponse getSuccessResponse(Serializable o) {
-		return new CommonResponse("200", "success", true, o);
+	public static CommonResponse success(Serializable o) {
+		return new CommonResponse(1, "success", true, o);
 	}
 	
-	public static CommonResponse getFailResponse(String msg) {
-		return new CommonResponse("400", msg, false, null);
+	public static CommonResponse error(ExceptionEnum e) {
+		return new CommonResponse(e.getCode(), e.getDetail(), false, null);
 	}
 	
 }

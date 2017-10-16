@@ -18,7 +18,7 @@ import javax.annotation.Resource;
  * Created by lilm on 17-9-7.
  */
 @RestController
-@RequestMapping("api/v1")
+@RequestMapping("api/v1/account")
 public class UserController {
 	
 	@Resource
@@ -27,19 +27,13 @@ public class UserController {
 	@GetMapping("user/{id}")
 	public CommonResponse selectById(@PathVariable("id") String id) {
 		User user = userService.selectById(id);
-		if (user == null) {
-			return ResponseFactory.getFailResponse("failed");
-		}
-		return ResponseFactory.getSuccessResponse(user);
+		return ResponseFactory.success(user);
 	}
 	
 	@PostMapping("user/create")
 	public CommonResponse createUser(@RequestBody User user) {
 		user.setUserId(UUIDUtil.createUUID());
-		int flag = userService.createUser(user);
-		if (flag != 1) {
-			return ResponseFactory.getFailResponse("failed");
-		}
-		return ResponseFactory.getSuccessResponse(user);
+		userService.createUser(user);
+		return ResponseFactory.success(user);
 	}
 }

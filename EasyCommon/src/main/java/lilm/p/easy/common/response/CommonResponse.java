@@ -7,13 +7,13 @@ import java.io.Serializable;
  */
 public class CommonResponse {
 	
-	private String code;
+	private Integer code;
 	private String msg;
 	private boolean success;
 	private Serializable data;
 	private long timestamp;
 	
-	public CommonResponse(String code, String msg, boolean success, Serializable data) {
+	public CommonResponse(Integer code, String msg, boolean success, Serializable data) {
 		this.code = code;
 		this.msg = msg;
 		this.success = success;
@@ -21,11 +21,11 @@ public class CommonResponse {
 		this.timestamp = System.currentTimeMillis();
 	}
 	
-	public String getCode() {
+	public Integer getCode() {
 		return code;
 	}
 	
-	public void setCode(String code) {
+	public void setCode(Integer code) {
 		this.code = code;
 	}
 	
