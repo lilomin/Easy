@@ -7,7 +7,8 @@ public enum ExceptionEnum {
 	
 	UNKNOWN(-1, "unknown error"),
 	DATA_NOT_FOUND(1001, "data not found"),
-	DATA_SAVE_FAILED(1002, "data save failed");
+	DATA_SAVE_FAILED(1002, "data save failed"),
+	USER_EXISTS(2001, "username is exists");
 	
 	ExceptionEnum(Integer code, String detail) {
 		this.code = code;

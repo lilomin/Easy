@@ -12,14 +12,30 @@ import org.apache.ibatis.annotations.Select;
  */
 public interface UserDao {
 	
-	@Select("SELECT user_id, username FROM user WHERE user_id = #{userId}")
+	@Select("SELECT user_id, username, password, email, nickname FROM user WHERE username = #{username}")
 	@Results({
 			@Result(property = "userId", column = "user_id"),
-			@Result(property = "username", column = "username")
+			@Result(property = "username", column = "username"),
+			@Result(property = "password", column = "password"),
+			@Result(property = "email", column = "email"),
+			@Result(property = "nickname", column = "nickname")
+	})
+	User queryByUsername(String username);
+	
+	@Select("SELECT user_id, username, password, email, nickname FROM user WHERE user_id = #{userId}")
+	@Results({
+			@Result(property = "userId", column = "user_id"),
+			@Result(property = "username", column = "username"),
+			@Result(property = "password", column = "password"),
+			@Result(property = "email", column = "email"),
+			@Result(property = "nickname", column = "nickname")
 	})
 	User queryById(@Param("userId") String userId);
 	
-	@Insert("insert into user values (#{userId}, #{username})")
+	@Insert(
+			"insert into user values " +
+					"(#{userId}, #{username}, #{password}, #{email}, #{nickname}, #{createTime}, #{updateTime})"
+	)
 	int insert(User user);
 	
 }
