@@ -14,6 +14,10 @@ public class ResponseFactory<T> {
 		return new CommonResponse(1, "success", true, o);
 	}
 	
+	public static CommonResponse fail(String failMsg) {
+		return new CommonResponse(-1, failMsg, false, null);
+	}
+	
 	public static CommonResponse error(ExceptionEnum e) {
 		return new CommonResponse(e.getCode(), e.getDetail(), false, null);
 	}

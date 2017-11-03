@@ -48,4 +48,17 @@ public class UserService {
 			throw new ServerException(ExceptionEnum.DATA_SAVE_FAILED);
 		}
 	}
+	
+	public User verifyUser(User user) {
+		String userId = user.getUserId();
+		String password = user.getPassword();
+		if (userId == null || password == null) {
+			throw new ServerException(ExceptionEnum.PARAMS_EMPTY);
+		}
+		User existsUser = selectById(userId);
+		if (encoder.matches(password, existsUser.getPassword())) {
+			return existsUser;
+		}
+		return null;
+	}
 }

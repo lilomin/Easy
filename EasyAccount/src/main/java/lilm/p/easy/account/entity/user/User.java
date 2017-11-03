@@ -1,5 +1,8 @@
 package lilm.p.easy.account.entity.user;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -13,8 +16,12 @@ public class User implements Serializable{
 	private String password;
 	private String email;
 	private String nickname;
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date createTime;
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date updateTime;
+	
+	private String token;
 	
 	public String getUserId() {
 		return userId;
@@ -32,6 +39,7 @@ public class User implements Serializable{
 		this.username = username;
 	}
 	
+	@JsonIgnore
 	public String getPassword() {
 		return password;
 	}
@@ -70,6 +78,14 @@ public class User implements Serializable{
 	
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
+	}
+	
+	public String getToken() {
+		return token;
+	}
+	
+	public void setToken(String token) {
+		this.token = token;
 	}
 	
 	@Override

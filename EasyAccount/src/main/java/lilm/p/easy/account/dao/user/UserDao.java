@@ -12,23 +12,27 @@ import org.apache.ibatis.annotations.Select;
  */
 public interface UserDao {
 	
-	@Select("SELECT user_id, username, password, email, nickname FROM user WHERE username = #{username}")
+	@Select("SELECT user_id, username, password, email, nickname, create_time, update_time FROM user WHERE username = #{username}")
 	@Results({
 			@Result(property = "userId", column = "user_id"),
 			@Result(property = "username", column = "username"),
 			@Result(property = "password", column = "password"),
 			@Result(property = "email", column = "email"),
-			@Result(property = "nickname", column = "nickname")
+			@Result(property = "nickname", column = "nickname"),
+			@Result(property = "createTime", column = "create_time"),
+			@Result(property = "updateTime", column = "update_time")
 	})
 	User queryByUsername(String username);
 	
-	@Select("SELECT user_id, username, password, email, nickname FROM user WHERE user_id = #{userId}")
+	@Select("SELECT user_id, username, password, email, nickname, create_time, update_time FROM user WHERE user_id = #{userId}")
 	@Results({
 			@Result(property = "userId", column = "user_id"),
 			@Result(property = "username", column = "username"),
 			@Result(property = "password", column = "password"),
 			@Result(property = "email", column = "email"),
-			@Result(property = "nickname", column = "nickname")
+			@Result(property = "nickname", column = "nickname"),
+			@Result(property = "createTime", column = "create_time"),
+			@Result(property = "updateTime", column = "update_time")
 	})
 	User queryById(@Param("userId") String userId);
 	
