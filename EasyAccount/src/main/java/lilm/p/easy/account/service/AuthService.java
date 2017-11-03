@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class AuthService {
 	
 	private static final int TOKEN_LENGTH = 24;
+	private static final String TOKEN_KEY_HEADER = "eToken-";
 	
 	@Autowired
 	private StringRedisTemplate redisTemplate;
@@ -23,9 +24,19 @@ public class AuthService {
 		if (StringUtils.isBlank(userId)) {
 			return null;
 		}
-		String token = RandomStringUtils.random(TOKEN_LENGTH, userId);
-		redisTemplate.opsForValue().set(userId, token, 3000, TimeUnit.MINUTES);
+		String key = getTokenKeyHeader(userId);
+		
+		String token = redisTemplate.opsForValue().get(key);
+		if (StringUtils.isNotBlank(token)) {
+			return token;
+		}
+		token = RandomStringUtils.random(TOKEN_LENGTH, userId);
+		redisTemplate.opsForValue().set(key, token, 300, TimeUnit.SECONDS);
 		return token;
+	}
+	
+	private String getTokenKeyHeader(String userId) {
+		return TOKEN_KEY_HEADER + userId;
 	}
 	
 	
