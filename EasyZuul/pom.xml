@@ -6,20 +6,14 @@
 		<groupId>lilm.p.easy</groupId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>easy-gateway</artifactId>
+	<artifactId>easy-zuul</artifactId>
 	<modelVersion>4.0.0</modelVersion>
-	<name>EasyGateway</name>
+	<name>EasyZuul</name>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-zuul</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

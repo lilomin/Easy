@@ -12,7 +12,7 @@
 	<modules>
 		<module>EasyCommon</module>
 		<module>EasyEureka</module>
-		<module>EasyGateway</module>
+		<module>EasyZuul</module>
 		<module>EasyAccount</module>
 	</modules>
 

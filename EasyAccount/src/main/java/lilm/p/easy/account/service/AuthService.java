@@ -31,8 +31,17 @@ public class AuthService {
 			return token;
 		}
 		token = RandomStringUtils.random(TOKEN_LENGTH, userId);
-		redisTemplate.opsForValue().set(key, token, 300, TimeUnit.SECONDS);
+		redisTemplate.opsForValue().set(key, token, 3600, TimeUnit.SECONDS);
 		return token;
+	}
+	
+	public boolean verify(String userId, String token) {
+		String key = getTokenKeyHeader(userId);
+		String value = redisTemplate.opsForValue().get(key);
+		if (value != null && value.equals(token)) {
+			return true;
+		}
+		return false;
 	}
 	
 	private String getTokenKeyHeader(String userId) {
