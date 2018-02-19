@@ -8,7 +8,7 @@
 	</parent>
 	<artifactId>easy-account</artifactId>
 	<modelVersion>4.0.0</modelVersion>
-	<name>EasyAccount</name>
+	<name>easy-account</name>
 
 	<dependencies>
 

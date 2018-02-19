@@ -8,12 +8,13 @@
 	<artifactId>easy-server</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>EasyServer</name>
+	<name>easy-server</name>
 	<modules>
-		<module>EasyCommon</module>
-		<module>EasyEureka</module>
-		<module>EasyZuul</module>
-		<module>EasyAccount</module>
+		<module>easy-common</module>
+		<module>easy-eureka</module>
+		<module>easy-zuul</module>
+		<module>easy-account</module>
+		<module>easy-mongo</module>
 	</modules>
 
 	<parent>
