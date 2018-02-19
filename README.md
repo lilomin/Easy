@@ -1,1 +1,1 @@
-Just for daily study
+Spring Cloud demo
